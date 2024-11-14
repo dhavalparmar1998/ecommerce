@@ -1,0 +1,51 @@
+<%- include ('header')%>
+
+<section>
+    <div class="container">
+        <div class="row">
+           
+            
+            <div class="col-sm-12 padding-right">
+                <div class="product-details"><!--product-details-->
+                    <div class="col-sm-5">
+                        <div class="view-product">
+                            <img src="/public/products/<%= x1.filepath%>" alt="" />
+                          
+                        </div>
+                      
+
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="product-information"><!--/product-information-->
+                            <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                            <h2><%= x1.productname%></h2>
+                            <p>Web ID: 1089772</p>
+                            <img src="images/product-details/rating.png" alt="" />
+                            <span>
+                                <span><%= x1.price%></span>
+                               
+                              
+                                <button for="<%= x1._id%>" type="button" class="btn btn-fefault cart add-cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </button>
+                            </span>
+                            <p><b>Discount:</b> <%= x1.discount%>%</p>
+                            <p><b>Final Price:</b> <%= x1.price - (x1.price*x1.discount/100)%></p>
+                            <p><b>Brand:</b> E-SHOPPER</p>
+                           <p>
+                            <%= x1.description%>
+                           </p>
+                        </div><!--/product-information-->
+                    </div>
+                </div><!--/product-details-->
+             
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include ('footer')%>
+
+

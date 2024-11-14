@@ -1,0 +1,50 @@
+<%- include ('../header') %>
+
+	<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2>Product Add Page</h2>
+						<!-- <form enctype="multipart/form-data" action="/product" method="post"> -->
+                            <form id="productform">
+
+                            <select name="categoryid" id="categoryid">
+                                <option value="">Please Select Category</option>
+                               <% x2.forEach(function(obj){ %>
+                                <option value="<%= obj._id%>">
+                                    <%= obj.categoryName%>
+                                </option>
+                                <% }) %>
+                            </select>
+                            <br>
+                            <br>
+                            <select name="brandid" id="brandid">
+                                <option value="">Please Select Brand</option>
+                                <% x1.forEach(function(obj){ %>
+                                    <option value="<%= obj._id%>">
+                                        <%= obj.brandName%>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                            <br>
+                            <br>
+                            <input name="productname" type="text" placeholder="Product Name" id="productname"/>
+                            <input name="price" type="text" placeholder="Price" id="price"/>
+                            <input name="discount" type="text" placeholder="discount" id="discount"/>
+                            <input name="filepath" type="file" id="filepath"/>
+                            <textarea name="description" id="description" placeholder="description"></textarea>
+
+							
+							<button type="submit" class="btn btn-default btn-product">Add Product</button>
+						</form>
+                        <div id="result"></div>
+					</div><!--/login form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+	
+    <%- include ('../footer') %>
+
+

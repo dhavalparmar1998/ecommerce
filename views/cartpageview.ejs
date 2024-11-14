@@ -1,0 +1,62 @@
+<%- include ('header')%>
+<section id="cart_items">
+    <% if(status){%>
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li class="active">Shopping Cart</li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description"></td>
+                        <td class="price">Price</td>
+                        <td class="quantity">Discount</td>
+                        <td class="total">Final price</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(function(obj){ %>
+                    <tr>
+                        <td class="cart_product">
+                            <a href=""><img width="75" src="/public/products/<%= obj.filepath%>" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href=""><%= obj.productname%></a></h4>
+                          
+                        </td>
+                        <td class="cart_price">
+                            <p><%= obj.price%></p>
+                        </td>
+                        <td class="cart_quantity">
+                           <p><%= obj.discount%>%</p>
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">
+                                <%= obj.price - (obj.price*obj.discount/100) %>
+                            </p>
+                        </td>
+                        <td class="cart_delete">
+                            <a for="<%= obj._id%>" class="cart_quantity_delete delete-cart" href=""><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    <% }) %>
+
+                   
+                </tbody>
+            </table>
+        </div>
+        <a href="/checkout">Checkout</a>
+    </div>
+    <% } else {%>
+        <div class="container">
+            <h1 class="text-center">Cart Empty</h1>
+        </div>
+        <% } %>
+</section> <!--/#cart_items-->
+<%- include ('footer')%>
