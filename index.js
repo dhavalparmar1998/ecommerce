@@ -7,11 +7,13 @@ import brandroute from "./routes/brand/routes.js";
 import productroute from "./routes/product/routes.js";
 import dbconnect from "./database/db.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 
 dbconnect().then(()=>console.log("connected")).catch(err=>console.log(err))
 
 const app = express();
+app.use(cors());
 app.use(cookieParser())
 app.set("view engine","ejs")
 app.use(bodyParser.urlencoded());
